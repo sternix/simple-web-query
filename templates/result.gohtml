@@ -1,0 +1,15 @@
+<table border="1" cellpadding="1" cellspacing="1">
+	<tr>
+	{{ range .Columns }}
+	<th>{{.}}</th>
+	{{ end }}
+	</tr>
+	{{ range .Values }}
+	<tr>
+	{{ range . }}
+	<td>{{.}}</td>
+	{{ end }}
+	</tr>
+	{{ end }}
+</table>
+

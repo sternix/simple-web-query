@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Query Editor</title>
+	<meta charset="utf-8"/>
+	<script type="text/javascript" src="/static/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<textarea id="txt_sql" rows="10" cols="80" placeholder="Sorgu..."></textarea>
+	<br/>
+	<input id="btn_submit" type="button" value="Çalıştır"/>
+	<div id="result"/>
+		
+	<script type="text/javascript">
+$("#btn_submit").click(function(event) {
+	$.post("/query",{
+			sql: $("#txt_sql").val()
+		},
+		function(data , status) {
+			$("#result").html(data);
+		}
+	);
+	event.preventDefault();
+});
+	</script>
+</body>
+</html>
